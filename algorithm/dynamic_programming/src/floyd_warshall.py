@@ -36,22 +36,30 @@ def printMatrix(d: list[list[int]]) -> None:
 # 특정 두 정점 사이의 최단 경로 출력
 def printPath(p: list[list[int]], q: int, r: int) -> None:
     if p[q-1][r-1] != 0:  # 최단 경로가 경유지를 지날 경우
-        printPath(p, q, p[q-1][r-1])  # 시작 정점에서 겅유하는 정점까지의 경로 검사
+        printPath(p, q, p[q-1][r-1])  # 시작 정점에서 경유하는 정점까지의 경로 검사
         print(f'v{p[q-1][r-1]}', end=' ')
-        printPath(p, p[q-1][r-1], r)  # 겅유하는 정점에서 끝 정점까지의 경로 검사
+        printPath(p, p[q-1][r-1], r)  # 경유하는 정점에서 끝 정점까지의 경로 검사
 
 # Testcase
 INF = 1000
-g = [ [0, 1, INF, 1, 5],
-      [9, 0, 3, 2, INF],
-      [INF, INF, 0, 4, INF],
-      [INF, INF, 2, 0, 3],
-      [3, INF, INF, INF, 0] ]
+# g = [ [0, 1, INF, 1, 5],
+#       [9, 0, 3, 2, INF],
+#       [INF, INF, 0, 4, INF],
+#       [INF, INF, 2, 0, 3],
+#       [3, INF, INF, INF, 0] ]
+g = [ [0, 1, INF, INF, 3, INF, INF],
+      [INF, 0, 4, 1, 3, INF, INF],
+      [INF, INF, 0, INF, INF, INF, 1],
+      [INF, INF, 1, 0, INF, 3, INF],
+      [INF, INF, INF, 2, 0, 1, INF],
+      [INF, INF, INF, INF, INF, 0, 2],
+      [INF, INF, INF, INF, INF, INF, 0]]
 
-d, p = floyd_warshall_2(g, 5)
+
+d, p = floyd_warshall_2(g, 7)
 print()
 printMatrix(d)
 print()
 printMatrix(p)
 print()
-printPath(p, 5, 3)
+printPath(p, 1, 3)
