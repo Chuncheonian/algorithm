@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # 이항계수의 두가지 접근 방법
-class BinaryCoefficient:
+class BinomialCoefficient:
     # Top-down, recursion
     def bin(self, n: int, k: int) -> int:
         if k == 0 or n == k:
@@ -24,7 +24,7 @@ class BinaryCoefficient:
         return matrix[n][k]
 
 # Testcase
-bc = BinaryCoefficient()
+bc = BinomialCoefficient()
 print(bc.bin(10, 5))
 print(bc.bin2(10, 5))
 
