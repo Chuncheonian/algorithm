@@ -1,4 +1,4 @@
-# Binary-Coefficient (이항계수)
+# Binomial-Coefficient (이항계수)
 
 > 이항계수의 두 가지 접근법을 알아보자
 

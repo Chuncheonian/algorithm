@@ -37,5 +37,3 @@ start = time.time()
 result2 = bc.bin2(1000, 500)
 end = time.time()
 print("bin2 exec time in N=1000 : ", end - start, ", result : ", result2)
-
-# https://jaeuk2274.tistory.com/52
