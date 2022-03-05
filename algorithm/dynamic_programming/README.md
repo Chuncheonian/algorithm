@@ -150,10 +150,10 @@ def fib_memoization(n: int) -> int:
 
 ## 대표적 알고리즘
 
-* 피보나치 수열 (fibonacci sequence)
+* [피보나치 수열 (fibonacci sequence)](./src/fibonacci.py)
 
-* 이항 계수 (binomial coefficient)
+* [이항 계수 (binomial coefficient)](./binomial_coefficient.md)
 
-* 플로이드-워셜 알고리즘 (floyd-warshall algorithm)
+* [플로이드-워셜 알고리즘 (floyd-warshall algorithm)](./floyd_warshall.md)
 
-* 최적 이진 탐색 트리 (optimal-BST)
+* [최적 이진 탐색 트리 (optimal-BST)](./optimal_bst.md)

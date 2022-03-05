@@ -21,10 +21,10 @@ bin(3, 1) = bin(2, 0) + bin(2, 1)
             |           |
             |           |
             |           bin(2, 1) = bin(1, 0) + bin(1, 1)
+            |                       |           |
             bin(2, 0) = 1           |           |
-                                    |           |
                                     |           bin(1, 1) = 1
-                                    |
+                                    |           
                                     bin(1, 0) = 1
 ```
 
@@ -104,3 +104,9 @@ Bottom-Up에 대한 시간복잡도는 다음과 같다.
 ## 참고 사이트
 
 * https://jaeuk2274.tistory.com/53?category=686913
+
+<br>
+
+## 전체 코드
+
+- [binomial_coefficient.py](./src/binomial_coefficient.py)

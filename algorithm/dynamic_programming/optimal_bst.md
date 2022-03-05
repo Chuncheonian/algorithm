@@ -158,3 +158,9 @@ root = tree(key, R, 1, 5)
 ## 참고 사이트
 
 * https://gsmesie692.tistory.com/116
+
+<br>
+
+## 전체 코드
+
+- [optimal_bst.py](./src/optimal_bst.py)
