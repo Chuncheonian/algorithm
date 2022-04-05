@@ -128,3 +128,125 @@ UIApplicationMain함수는 앱의 본체에 해당하는 객체인 UIApplication
 nib파일을 사용하는 경우나, Info.plist 파일을 읽어들여 파일에 기록된 정보를 참고하여 그외에 필요한 데이터를 로드한다.
 앱 델리게이트 객체를 만들고 앱 객체와 연결하고 런루프를 만드는 등 실행에 필요한 준비를 한다.
 실행 완료를 앞두고 앱 객체가 앱 델리게이트에게 application:didFinishLaunchingWithOptions: 메시지를 보낸다.
+
+---
+
+### 14. NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
+
+
+---
+### 15. GCD API 동작 방식과 필요성에 대해 설명하시오.
+
+---
+
+### 16. Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
+
+---
+
+### 17. iOS 앱을 만들고, User Interface를 구성하는 데 필수적인 프레임워크 이름은 무엇인가?
+
+UIKit입니다. UIKit는 Cocoa Touch Framework 안에 속해있습니다.
+
+UIKit는 UI와 관련된 기능을 담당합니다.
+
+UIKit 클래스 중 UIResponder에서 파생된 클래스나 사용자 인터페이스에 관련된 클래스는 애플리케이션의 메인 스레드(혹은 메인 디스패치 큐)에서만 사용.
+
+---
+
+### 18. Foundation Kit은 무엇이고 포함되어 있는 클래스들은 어떤 것이 있는지 설명하시오.
+
+Foundation Kit은 Cocoa Touch framework에 포함되어 있는 프레임워크 중 하나입니다. 
+
+UI와 관련된 기능을 담당하는 UIKit와는 달리 UI를 제외한 앱의 기본적인 기능을 담당합니다.
+예를 들어, String, Int 등의 원시 데이터 타입과 운영체제 서비스 및 URLSession 같은 네트워크 기능을 포함하고 있습니다.
+
+---
+
+### 19. Delegate란 무언인가 설명하고, retain 되는지 안되는지 그 이유를 함께 설명하시오.
+
+Delegate는 클래스나 구조체가 자신의 책임이나 임무를 다른 인스턴스에게 위임하는 디자인 패턴입니다.
+
+Retain는 메모리가 제 때 해제되지 않아 누수되는 의미인데, Delegate는 ViewController, 즉 Class간에 작업이 대다수이기 때문에 Call By Reference이므로 순환참조로 인해 Retain이 생길 가능성이 있습니다. 이를 방지하고자 약함 참조 weak를 사용합니다.
+
+---
+
+### 20. NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
+
+
+
+---
+
+### 21. UIKit 클래스들을 다룰 때 꼭 처리해야하는 애플리케이션 쓰레드 이름은 무엇인가?
+
+UIKit의 대부분의 구성 요소는 nonatomic(서로 연결된)으로 기술되어 있으며, 이는 Thread-safe하지 않다 것을 의미합니다. UIKit에서 모든 속성을 Thread-safe하게 디자인하는 것은 UIKit이 너무 방대한 프레임워크이기 때문에 비현실적입니다. 
+
+모든 View의 변경 사항은 즉시 변경되는것이 아니라 현재 RunLoop의 끝에서 다시 그려짐. 만약 모두 main Thread에서 작업하지 않는다면, View의 layout이 제대로 동작한다고 보장할 수 없습니다.
+
+---
+
+### 22. App Bundle의 구조와 역할에 대해 설명하시오.
+
+
+
+---
+
+### 23. 모든 View Controller 객체의 상위 클래스는 무엇이고 그 역할은 무엇인가?
+
+UINavigationController, UITableViewController, UITabBarController 등 모든 View Controller는 UIViewController를 상속받습니다.
+
+UIViewController는 뷰의 계층 구조를 관리합니다.
+
+---
+
+### 24. 자신만의 Custom View를 만들려면 어떻게 해야하는지 설명하시오.
+
+Xib 파일을 이용하거나
+
+Programmatically 하게 코드로 작성하여 UIView 객체를 초기화합니다.
+
+---
+
+### 25. View 객체에 대해 설명하시오.
+
+
+
+---
+
+### 26. UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
+
+layer 타입은 CALayer입니다. CA가 있다시피, Core Animation 프레임워크에 있습니다. 
+
+UIView는 레이아웃, 터치 이벤트 등 많은 작업을 하지만, 사실은 뷰 위에 컨텐츠나 애니메이션을 그리는 행위는 직접하지 않고 Core Animation에 위임을 합니다.
+
+---
+
+### 27. UIWindow 객체의 역할은 무엇인가?
+
+UIWindow는 직접적으로 시각적인 내용을 나타내지는 않지만 화면을 구성하는 모든 뷰들의 부모가되는 컨테이너 역할을 하는 객체입니다.
+
+---
+
+### 28. UINavigationController 의 역할이 무엇인지 설명하시오.
+
+UINavigationController는 스택처럼 화면들을 쌓아서 화면간 이동을 관리하는 컨테이너입니다.
+
+---
+
+### 29. TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
+
+인덱스마다 어떤 셀을 사용할지 반환하는 cellForRowAt이 있고, 섹션마다 표시할 셀의 개수를 반환하는 numberOfRowsInSection이 있습니다.
+
+---
+
+### 30. 하나의 View Controller 코드에서 여러 TableView Controller 역할을 해야 할 경우 어떻게 구분해서 구현해야 하는지 설명하시오.
+
+
+
+---
+
+### 31. setNeedsLayout와 setNeedsDisplay의 차이에 대해 설명하시오.
+
+setNeedsLayout은 뷰의 위치와 크기를 업데이트하는 layoutSubviews를 다음 업데이트 사이클에 호출하도록 예약하는 메서드입니다. setNeedsDisplay는 뷰의 내용을 그리는 draw 메서드를 다음 업데이트 사이클에 호출하도록 예약하는 메서드입니다.
+
+
+---
